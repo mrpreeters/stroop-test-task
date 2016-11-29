@@ -21,6 +21,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
  
+ // TODO space bug
 
 var keyPressed; /* pressed key code*/ 
 var correctTiming = []; /* timings for correct group */
@@ -42,16 +43,22 @@ $(document).keypress(function(event)
 {
 		// get keypressed code
   		keyPressed = String.fromCharCode(event.which); 
-  		console.log(start);
+  		//console.log(start);
   		// if we good to go
-  		if(event.which == 32)
+		console.log(count);
+  		if(event.which == 32 && start == 0 )
   		{
-  			console.log("start");
+  			
   			start = 1;
   			startTest();
   		}
-  		
-  		// error, dela za eno iteracijo nazaj, bump
+  		if(event.which == 32 && count >0)
+		{
+			//console.log("ok");
+			
+			return;
+		}
+  		// check wheather test is in progress
 		if(keyPressed && count < limit && count !=0 && start == 1)
  		{
 			// set timer
@@ -65,19 +72,19 @@ $(document).keypress(function(event)
 			// what group we in, push result to group
 			if(group == "control")
 			{
-				console.log("push to control");
+			//	console.log("push to control");
 				controlTiming.push((t1 - t0));
 
 			}
 			else if(group == "correct")
 			{
-					console.log("push to correctTiming");
+			//		console.log("push to correctTiming");
 				correctTiming.push((t1 - t0));
 
 			}
 			else if(group == "incorrect")
 			{
-					console.log("push to incorrectTiming");
+			//		console.log("push to incorrectTiming");
 				incorrectTiming.push((t1 - t0));
 
 			}
@@ -91,12 +98,13 @@ $(document).keypress(function(event)
 		// you know what this is
 		else if(count == 10 && start == 1)
 		{
-
+			$('#text').remove();
 			// generate stats
 			stats();
 			// generate json
 			generateJSON();
 		}
+	
 	count++;
  
 });
@@ -148,7 +156,7 @@ function getColor()
 function checkGroup(txt, col, key)
 {
 
-	console.log("key" + key);
+	//console.log("key" + key);
 	if(key == "d")
 	{
 		pickedColor = "red";
@@ -165,21 +173,21 @@ function checkGroup(txt, col, key)
 	{
 		pickedColor = "black";
 	}
-	console.log(pickedColor);
-	console.log(col);
+	//console.log(pickedColor);
+	//console.log(col);
 	if(col == pickedColor && txt!="rectangle")
 	{
-		console.log("correct");
+		//console.log("correct");
 		return "correct";
 	}
 	else if(col != pickedColor && txt!="rectangle")
 	{
-		console.log("incorrect");
+		//console.log("incorrect");
 		return "incorrect";
 	}
 	else if(txt == "rectangle")
 	{
-			console.log("control");
+		//	console.log("control");
 	
 		return "control";
 	}
