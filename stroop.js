@@ -21,16 +21,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
  
-
-
-
-
-    function maxWindow() {
-		console.log("asd");
-		
-    
-    }
- 
  // TODO space bug
 
 var keyPressed; /* pressed key code*/ 
@@ -49,13 +39,13 @@ var avgCorrect;
 var avgControl;
 var pickedColor;
 // runs at keypressed
-$(document).keypress(function(event)
+$(document).keyup(function(event)
 {
 		// get keypressed code
   		keyPressed = String.fromCharCode(event.which); 
   		//console.log(start);
   		// if we good to go
-		console.log(count);
+		//console.log(count);
   		if(event.which == 32 && start == 0 )
   		{
   			
@@ -90,7 +80,7 @@ $(document).keypress(function(event)
 			}
 			else if(group == "correct")
 			{
-			//		console.log("push to correctTiming");
+				//	console.log("push to correctTiming");
 				correctTiming.push((t1 - t0));
 
 			}
@@ -167,29 +157,29 @@ function getColor()
 // return the corresponding group of combination of text and color
 function checkGroup(txt, col, key)
 {
-
+	key=key.toUpperCase();
 	//console.log("key" + key);
-	if(key == "d")
+	if(key == "D")
 	{
 		pickedColor = "red";
 	}
-	else if(key == "f")
+	else if(key == "F")
 	{
 		pickedColor = "green";
 	}
-	else if(key == "j")
+	else if(key == "J")
 	{
 		pickedColor = "blue";
 	}
-	else if(key == "k")
+	else if(key == "K")
 	{
 		pickedColor = "black";
 	}
-	//console.log(pickedColor);
+	//console.log("picked "+pickedColor);
 	//console.log(col);
 	if(col == pickedColor && txt!="rectangle")
 	{
-		//console.log("correct");
+		console.log("correct2");
 		return "correct";
 	}
 	else if(col != pickedColor && txt!="rectangle")
@@ -225,7 +215,7 @@ function stats()
 	sum = 0;
 	for( var i = 0; i < correctTiming.length; i++ )
 	{
-		console.log(correctTiming[i]);
+		//console.log(correctTiming[i]);
 	    sum += parseInt( correctTiming[i], 10 ); 
 	}
 
@@ -238,9 +228,9 @@ function stats()
 	}
 	avgControl = sum/controlTiming.length;
 
-	console.log("avgCorrect" + avgCorrect);
-	console.log("avgIncorrect" + avgIncorrect);
-	console.log("avgControl" + avgControl);
+	//console.log("avgCorrect" + avgCorrect);
+	//console.log("avgIncorrect" + avgIncorrect);
+	//console.log("avgControl" + avgControl);
 
 }
 
@@ -257,5 +247,5 @@ $('.result').toggleClass("result-finished");
 		$('.result').append(jsonString);
 
 
-	console.log(jsonString);
+	//console.log(jsonString);
 }
