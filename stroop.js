@@ -21,6 +21,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
  
+
+
+
+
+    function maxWindow() {
+		console.log("asd");
+		
+    
+    }
+ 
  // TODO space bug
 
 var keyPressed; /* pressed key code*/ 
@@ -50,7 +60,9 @@ $(document).keypress(function(event)
   		{
   			
   			start = 1;
+			screenfull.request();
   			startTest();
+			
   		}
   		if(event.which == 32 && count >0)
 		{
@@ -241,7 +253,7 @@ function generateJSON()
 		'"incorrect":"'+avgIncorrect+'",'+
 		'"control":"'+avgControl+'"}}';
 
-
+$('.result').toggleClass("result-finished");
 		$('.result').append(jsonString);
 
 

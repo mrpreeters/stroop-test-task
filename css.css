@@ -68,6 +68,18 @@
 		width: 40%;
 	margin-left: auto;
 	margin-right: auto;
+
+			padding:20px;
+
+}
+.result-finished
+{
+		margin-top: 50px;
+		margin-bottom: 50px;
+	text-align: center;
+		width: 40%;
+	margin-left: auto;
+	margin-right: auto;
 		border:1px solid #ccc;
 			padding:20px;
 	border-radius: 5px;
