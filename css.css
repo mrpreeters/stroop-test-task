@@ -1,0 +1,51 @@
+.green
+{
+	color:green;
+}
+.black
+{
+	color:black;
+
+}
+.blue
+{
+	color:blue;
+
+}
+.red
+{
+		color:red;
+
+}
+#text
+{
+	font-size: 40px;
+	font-weight: bold;
+ position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+}
+.rectangle-red
+{
+	background: red;
+	    height: 60px!important;
+}
+.rectangle-green
+{
+	background: green;
+	    height: 60px!important;
+}
+.rectangle-black
+{
+	background: black;
+	    height: 60px!important;
+}
+.rectangle-blue
+{
+	background: blue;
+	    height: 60px!important;
+}
